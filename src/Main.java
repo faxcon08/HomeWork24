@@ -25,6 +25,12 @@ public class Main {
         }
         minMaxConsumer.accept(min,max);
     }
+
+    public static void evenNumberCount(List<Integer>list) {
+
+        System.out.println(list.stream().filter(x -> x % 2 == 0).collect(Collectors.toList()));
+    }
+
     public static void main(String[] args) {
         Consumer<String> printTask = (x)->
         {String separator = " ====================== ";System.out.println(separator+x+separator);};
@@ -54,7 +60,7 @@ public class Main {
         };
         BiConsumer<Integer,Integer> biConsumer = (x,y) ->{System.out.println("Min: "+x +" Max:"+y);};
         BiConsumer<Double,Double> doubleDoubleBiConsumer = (x,y)->System.out.println("Min: "+x+" Max: "+y);
-        printTask.accept("First Task");
+        printTask.accept("First Task 1.1;");
 
         System.out.println(Arrays.asList(integerMass));
         findMinMax(stream,integerComparator,biConsumer);
@@ -62,5 +68,10 @@ public class Main {
         System.out.println(Arrays.asList(doubleMass));
         findMinMax(Arrays.stream(doubleMass),doubleComparator,doubleDoubleBiConsumer);
 
+        printTask.accept(("Second Task 1.2;"));
+
+        Integer[] mass2={3,4,1,5,8};
+
+       evenNumberCount(Arrays.asList(mass2));
     }// main
 }// Main
